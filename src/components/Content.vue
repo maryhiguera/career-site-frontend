@@ -1,10 +1,12 @@
 <script>
 import axios from "axios";
 import JobsIndex from "./JobsIndex.vue";
+import JobsNew from "./JobsNew.vue";
 
 export default {
   components: {
     JobsIndex,
+    JobsNew,
   },
   data: function () {
     return {
@@ -27,6 +29,7 @@ export default {
 
 <template>
   <main>
+    <JobsNew />
     <JobsIndex v-bind:jobs="jobs" />
   </main>
 </template>
