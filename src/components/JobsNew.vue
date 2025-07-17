@@ -1,23 +1,37 @@
-<script></script>
+<script>
+export default {
+  data: function () {
+    return {
+      newJobParams: {},
+    };
+  },
+  methods: {
+    handleSubmit: function () {
+      this.$emit("createJob", this.newJobParams);
+      this.newJobParams = {};
+    },
+  },
+};
+</script>
 
 <template>
   <div>
     <h1>New Job</h1>
-    <form>
+    <form v-on:submit.prevent="handleSubmit">
       <div>
-        Title: <input name="title" type="text" />
+        Title: <input type="text" v-model="newJobParams.title"/>
       </div>
       <div>
-        Company: <input name="company" type="text"/>
+        Company: <input type="text" v-model="newJobParams.company"/>
       </div>
       <div>
-        Location: <input name="location" type="text"/>
+        Location: <input type="text" v-model="newJobParams.location"/>
       </div>
       <div>
-        Description: <input name="description" type="text"/>
+        Description: <input type="text" v-model="newJobParams.description"/>
       </div>
       <div>
-        Salary: <input name="salary" type="text"/>
+        Salary: <input type="text" v-model="newJobParams.salary"/>
       </div>
       <button type="submit">Create Job</button>
     </form>
