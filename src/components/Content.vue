@@ -2,15 +2,19 @@
 import axios from "axios";
 import JobsIndex from "./JobsIndex.vue";
 import JobsNew from "./JobsNew.vue";
+import Modal from "./Modal.vue";
 
 export default {
   components: {
     JobsIndex,
     JobsNew,
+    Modal,
   },
   data: function () {
     return {
       jobs: [],
+      currentJobs: {}, 
+      isJobsShowVisible: false,
     };
   },
   created: function () {
@@ -32,6 +36,14 @@ export default {
         console.log("jobs create error", error.response);
       });
     },
+    handleShowJob: function (job) {
+      console.log("handleShowJob", job);
+      this.currentJob = job;
+      this.isJobsShowVisible = true;
+    },
+    handleClose: function () {
+      this.isJobsShowVisible = false;
+    },
   },
 };
 </script>
@@ -39,7 +51,10 @@ export default {
 <template>
   <main>
     <JobsNew v-on:createJob="handleCreateJob" />
-    <JobsIndex v-bind:jobs="jobs" />
+    <JobsIndex v-bind:jobs="jobs" v-on:showJob="handleShowJob"/>
+    <Modal v-bind:show="isJobsShowVisible" v-on:close="handleClose" >
+      <h1>test</h1>
+    </Modal>
   </main>
 </template>
 

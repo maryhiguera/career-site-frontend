@@ -14,6 +14,7 @@ export default {
       <h3>{{ job.company }}, {{ job.location }}</h3>
       <p>{{ job.description }}</p>
       <p>{{ job.salary }}</p>
+      <button v-on:click="$emit('showJob', job)">More Info</button>
     </div>
   </div>
 </template>
