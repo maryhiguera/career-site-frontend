@@ -1,0 +1,34 @@
+<script>
+import axios from "axios";
+import JobsIndex from "./JobsIndex.vue";
+
+export default {
+  components: {
+    JobsIndex,
+  },
+  data: function () {
+    return {
+      jobs: [],
+    };
+  },
+  created: function () {
+    this.handleIndexJobs();
+  },
+  methods: {
+    handleIndexJobs: function () {
+      axios.get("http://localhost:5000/jobs.json").then((response) => {
+        console.log("jobs index", response);
+        this.jobs = response.data;
+      });
+    },
+  },
+};
+</script>
+
+<template>
+  <main>
+    <JobsIndex v-bind:jobs="jobs" />
+  </main>
+</template>
+
+<style></style>
