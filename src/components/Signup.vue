@@ -29,9 +29,6 @@ export default {
       <div>
         Password: <input type="text" v-model="newUserParams.password"/>
       </div>
-      <div>
-        Password Confirmation: <input type="text" v-model="newUserParams.password_confirmation"/>
-      </div>
       <button type="submit">Sign Up</button>
     </form>
   </div>
