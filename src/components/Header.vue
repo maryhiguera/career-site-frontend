@@ -1,9 +1,14 @@
-<script></script>
+<script>
+import { RouterLink } from 'vue-router';
+
+</script>
 
 <template>
   <header>
     <nav>
-      <a href="#">Home</a> | <a href="#">Link</a>
+      <RouterLink to="/jobs">Jobs</RouterLink> | <RouterLink to="/jobs/new">New Job</RouterLink> |
+      <RouterLink to="/signup">Sign Up</RouterLink> | <RouterLink to="/login">Login</RouterLink> |
+      <RouterLink to="/logout">Logout</RouterLink>
     </nav>
   </header>
 </template>

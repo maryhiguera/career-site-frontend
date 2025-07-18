@@ -18,9 +18,9 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div className="container">
     <Header />
-    <Content />
+    <RouterView />
     <Footer />
   </div>
 </template>
