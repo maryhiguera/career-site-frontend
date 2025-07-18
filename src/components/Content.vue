@@ -45,7 +45,7 @@ export default {
     },
     handleUpdateJob: function (id, params) {
       console.log("handleUpdateJob", id, params);
-      axios.patch(`/jobs/${id}.json`).then((response) => {
+      axios.patch(`/jobs/${id}.json`, params).then((response) => {
         console.log("jobs update", response);
         this.jobs = this.jobs.map((job) => {
           if (job.id === response.data.id) {
@@ -61,7 +61,7 @@ export default {
       });
     },
     handleDestroyJob: function (job) {
-      axios.delete(`/jobs/${id}.json`).then((response) => {
+      axios.delete(`/jobs/${job.id}.json`).then((response) => {
         console.log("destroy job", response);
         var index = this.jobs.indexOf(job);
         this.jobs.splice(index, 1);
